@@ -7,6 +7,12 @@ The profiler defaults to a naive memory-based logger for debugging purposes.
 
 [PSR-3 implementation]: (https://packagist.org/providers/psr/log-implementation)
 
+```php
+<?php
+$pdo->setProfiler(new Aura\Sql\Profiler);
+
+```
+
 ## Using The Profiler
 
 You can activate and deactivate the profiler using the `Profiler::setActive()`
@@ -25,7 +31,7 @@ $pdo->getProfiler()->setActive(true);
 // ...
 
 // now retrieve the array messages from the default memory logger:
-$messages = $pdo->getProfiler()->getLogger()->getMessages();
+$messages = $pdo->getProfiler()->getProfiles();
 print_r($messages);
 ```
 
